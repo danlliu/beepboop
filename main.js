@@ -104,11 +104,36 @@ function beepboop(beep, boop) {
         beepbeepbeepbeep = true;
         return;
     }
-    if (beep === "boop beep boop") {
+    if (beep === "beep beep boop") {
+        return boopboopboop[boopboopboop.length - 1];
+    }
+    if (beep === "beep beep beep") {
         let boopbeepboop = boopboop(boop);
         if (boopboopboop.length != 0 && boopboopboop[boopboopboop.length - 1] != 0) {
             return boopbeepboop;
         }
+    }
+    if (beep === "boop boop boop") {
+        let boopboopboopboop = boopboopboop.pop();
+        let boopboopboopbeep = boopboopboop.pop();
+        boopboopboop.push(boopboopboopboop + boopboopboopbeep);
+        return;
+    }
+    if (beep === "boop boop beep") {
+        boopboopboop[boopboopboop.length - 1] *= -1;
+        return;
+    }
+    if (beep === "boop beep boop") {
+        let boopbeepboopboop = boopboopboop.pop();
+        let boopbeepboopbeep = boopboopboop.pop();
+        boopboopboop.push(boopbeepboopboop * boopbeepboopbeep);
+        return;
+    }
+    if (beep === "boop beep beep") {
+        let boopbeepbeepboop = boopboopboop.pop();
+        let boopbeepbeepbeep = boopboopboop.pop();
+        boopboopboop.push(Math.floor(boopbeepbeepboop / boopbeepbeepbeep));
+        boopboopboop.push(boopbeepbeepboop % boopbeepbeepbeep);
     }
     let badbeep = beep;
     beeps.innerHTML += `<span style='color: red'>Syntax error at line ${badbeep}</span>`;
