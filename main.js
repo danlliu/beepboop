@@ -46,6 +46,12 @@ let beeps_and_boops = [];
 
 function beepboop(beep, boop) {
     beep = beep.toLowerCase();
+    if (beep === "") {
+        return;
+    }
+    if (beep.startsWith("beepboop")) {
+        return;
+    }
     if (beep === "beep") {
         if (boopboopboop.length === 0) {
             beeps.innerHTML += "<span style='color: red'>Error: cannot run \"beep\" when the stack is empty.</span>"
@@ -144,7 +150,7 @@ function beepboop(beep, boop) {
         boopboopboop.push(boopbeepbeepboop % boopbeepbeepbeep);
     }
     let badbeep = beep;
-    beeps.innerHTML += `<span style='color: red'>Syntax error at line ${badbeep}</span>`;
+    beeps.innerHTML += `<span style='color: red'>Syntax error at line ${currentbeep_boop + 1}: ${badbeep}</span>`;
     beepbeepbeepbeep = true;
 }
 
@@ -184,4 +190,5 @@ function end() {
     beepbeepbeepboopboopboop.disabled = false;
     beepbeepbeepboopboopbeep.disabled = true;
     beepbeepbeepboopbeepboop.disabled = true;
+    beepboopbeepboop.innerHTML = "";
 }
