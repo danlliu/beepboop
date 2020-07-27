@@ -21,7 +21,8 @@
         as well as push or pop from the stack.</p>
     <hr/>
     <h3>The instructions:</h3>
-    <h4>Pushing/popping</h4>
+
+    <h4>Stack Manipulation:</h4>
     <hr/>
     <h5>Boop</h5>
     <p>The "boop" instruction pushes the value 0 onto the stack.</p>
@@ -31,14 +32,18 @@
     <p>The "boop boop" instruction pushes a value to the stack. This value is determined by reading the next line as
     binary. "beep" is a 1 and "boop" is a 0. This value will always be positive (no two's complement). For example,
         "beep boop beep" = 5.</p>
+    <h5>Boop Beep</h5>
+    <p>Copy the value on the top of the stack and push it onto the stack.</p>
     <hr/>
-    <h4>Output</h4>
+
+    <h4>Output:</h4>
     <h5>Beep Boop</h5>
     <p>This outputs the top of the stack as an ASCII character. Currently, Beep Boop supports all characters listed
         in the ASCII table on the main page (10, 32-127).</p>
     <h5>Beep Beep</h5>
     <p>This outputs the top of the stack as a base 10 number.</p>
     <hr/>
+
     <h4>Control Flow:</h4>
     <h5>(nothing)</h5>
     <p>No-op</p>
@@ -51,6 +56,7 @@
     <h5>Beep Beep Beep</h5>
     <p>If the top of the stack exists and is a nonzero value, jump to the line number specified by the binary number
     on the next line. See "Boop Boop" for how "beep"s and "boop"s represent a binary number.</p>
+
     <h4>Math:</h4>
     <h5>Boop Boop Boop</h5>
     <p>Pop the two numbers on the top of the stack, add them together, and push the sum to the stack.</p>
@@ -63,6 +69,16 @@
     <p>Pop the two numbers on the top of the stack. Perform integer division of the first number (previously top of
         the stack) by the second number and push the result of the integer division to the stack first, followed by
         the remainder (first % second).</p>
+
+    <h4>Registers:</h4>
+    <h5>Beep Boop Boop Boop</h5>
+    <p>Stores the value from the top of the stack into the "boop" register.</p>
+    <h5>Beep Boop Boop Beep</h5>
+    <p>Stores the value from the top of the stack into the "beep" register.</p>
+    <h5>Beep Boop Beep Boop</h5>
+    <p>Pushes the value of the "boop" register onto the stack.</p>
+    <h5>Beep Boop Beep Beep</h5>
+    <p>Pushes the value of the "beep" register onto the stack.</p>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

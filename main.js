@@ -12,6 +12,9 @@ let beepbeepbeepboopboopbeep = document.querySelector('#step');
 let beepbeepbeepboopbeepboop = document.querySelector('#end');
 let beepbeepbeepboopbeepbeep = document.querySelector('#run');
 
+let R_BOOP = document.querySelector('#r_boop');
+let R_BEEP = document.querySelector('#r_beep');
+
 const BOOP = 0;
 
 let boopboopboop = [];
@@ -43,6 +46,8 @@ function boopboop(boop) {
 }
 
 let currentbeep_boop = 0;
+let r_boop = 0;
+let r_beep = 0;
 let beeps_and_boops = [];
 
 function beepboop(beep, boop) {
@@ -113,6 +118,14 @@ function beepboop(beep, boop) {
         boopboopboop.push(boopboop(boop));
         ++currentbeep_boop;
         return;
+    }
+    if (beep === "boop beep") {
+        if (boopboopboop.length === 0) {
+            beeps.innerHTML += "<span style='color: red'>Error: \"boop beep\" requires a value on the stack to copy.";
+            beepbeepbeepbeep = true;
+            return;
+        }
+        boopboopboop.push(boopboopboop[boopboopboop.length - 1]);
     }
     if (beep === "beep beep beep beep") {
         beeps.innerHTML += "<br/><b>Halting!</b></br>";
@@ -188,6 +201,32 @@ function beepboop(beep, boop) {
         boopboopboop.push(boopbeepbeepboop % boopbeepbeepbeep);
         return;
     }
+    if (beep === "beep boop boop boop") {
+        if (boopboopboop.length === 0) {
+            beeps.innerHTML += `<span style='color: red'>Can't run \"beep boop boop boop\" because there isn't anything on the stack!</span>`;
+            beepbeepbeepbeep = true;
+            return;
+        }
+        r_boop = boopboopboop[boopboopboop.length - 1];
+        return;
+    }
+    if (beep === "beep boop boop beep") {
+        if (boopboopboop.length === 0) {
+            beeps.innerHTML += `<span style='color: red'>Can't run \"beep boop boop beep\" because there isn't anything on the stack!</span>`;
+            beepbeepbeepbeep = true;
+            return;
+        }
+        r_beep = boopboopboop[boopboopboop.length - 1];
+        return;
+    }
+    if (beep === "beep boop beep boop") {
+        boopboopboop.push(r_boop);
+        return;
+    }
+    if (beep === "beep boop beep beep") {
+        boopboopboop.push(r_beep);
+        return;
+    }
     let badbeep = beep;
     beeps.innerHTML += `<span style='color: red'>Syntax error at line ${currentbeep_boop + 1}: ${badbeep}</span>`;
     beepbeepbeepbeep = true;
@@ -220,6 +259,8 @@ function step() {
             beepbeepbeepboopboopbeep.disabled = true;
             beepbeepbeepboopbeepbeep.disabled = true;
         }
+        R_BOOP.innerHTML = `${r_boop}`;
+        R_BEEP.innerHTML = `${r_beep}`;
         beepboopbeepboop.innerHTML = "";
         for (let boop = 0; boop < currentbeep_boop; ++boop) {
             beepboopbeepboop.innerHTML += "<br/>";
