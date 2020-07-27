@@ -62,6 +62,11 @@ function beepboop(beep, boop) {
     if (beep.startsWith("beepboop")) {
         return;
     }
+    if (beep === "send help") {
+        beepbeepbeepbeep = true;
+        beeps.innerHTML += "<span style='color: red'>Program exited with status code 0xSEND_HELP</span>";
+        return;
+    }
     if (beep === "beep") {
         if (boopboopboop.length === 0) {
             beeps.innerHTML += "<span style='color: red'>Error: cannot run \"beep\" when the stack is empty.</span>"
