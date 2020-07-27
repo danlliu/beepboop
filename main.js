@@ -2,6 +2,10 @@
 If you're looking in here for details about how the language works, you should first check the documentation!
  */
 
+let editor = CodeMirror.fromTextArea(document.querySelector('#code'), {
+    lineNumbers: true
+});
+editor.setSize(null, "100%");
 let beep_boop = document.querySelector('#code');
 let beeps = document.querySelector('#beep');
 let boops = document.querySelector('#boop');
@@ -233,8 +237,9 @@ function beepboop(beep, boop) {
 }
 
 function compile() {
+    editor.setOption('readOnly', true);
     boopboopboop = [];
-    beeps_and_boops = beep_boop.value.split('\n');
+    beeps_and_boops = editor.getValue().split('\n');
     console.log(beeps_and_boops);
     currentbeep_boop = 0;
     beepbeepbeepbeep = false;
@@ -296,4 +301,5 @@ function end() {
     beepbeepbeepboopbeepboop.disabled = true;
     beepbeepbeepboopbeepbeep.disabled = true;
     beepboopbeepboop.innerHTML = "";
+    editor.setOption('readOnly', false);
 }
