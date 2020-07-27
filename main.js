@@ -10,6 +10,7 @@ let beepboopbeepboop = document.querySelector('#current_beepboop');
 let beepbeepbeepboopboopboop = document.querySelector('#compy');
 let beepbeepbeepboopboopbeep = document.querySelector('#step');
 let beepbeepbeepboopbeepboop = document.querySelector('#end');
+let beepbeepbeepboopbeepbeep = document.querySelector('#run');
 
 const BOOP = 0;
 
@@ -159,9 +160,11 @@ function compile() {
     beeps_and_boops = beep_boop.value.split('\n');
     console.log(beeps_and_boops);
     currentbeep_boop = 0;
+    beepbeepbeepbeep = false;
     beepbeepbeepboopboopboop.disabled = true;
     beepbeepbeepboopboopbeep.disabled = false;
     beepbeepbeepboopbeepboop.disabled = false;
+    beepbeepbeepboopbeepbeep.disabled = false;
     beeps.innerHTML = "";
     beepboopbeepboop.innerHTML = "&gt;";
     updateboops();
@@ -177,6 +180,7 @@ function step() {
         }
         if (currentbeep_boop >= beeps_and_boops.length || beepbeepbeepbeep) {
             beepbeepbeepboopboopbeep.disabled = true;
+            beepbeepbeepboopbeepbeep.disabled = true;
         }
         beepboopbeepboop.innerHTML = "";
         for (let boop = 0; boop < currentbeep_boop; ++boop) {
@@ -186,9 +190,19 @@ function step() {
     }
 }
 
+function run() {
+    var timer = setInterval(() => {
+        step();
+        if (currentbeep_boop >= beeps_and_boops.length || beepbeepbeepbeep) {
+            clearInterval(timer);
+        }
+    }, 750);
+}
+
 function end() {
     beepbeepbeepboopboopboop.disabled = false;
     beepbeepbeepboopboopbeep.disabled = true;
     beepbeepbeepboopbeepboop.disabled = true;
+    beepbeepbeepboopbeepbeep.disabled = true;
     beepboopbeepboop.innerHTML = "";
 }
