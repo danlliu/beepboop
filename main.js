@@ -282,12 +282,15 @@ function run() {
     timer = setInterval(() => {
         step();
         if (currentbeep_boop >= beeps_and_boops.length || beepbeepbeepbeep) {
+            beepbeepbeepboopbeepbeep.innerHTML = "Run";
             clearInterval(timer);
+            timer = null;
         }
     }, 250);
 }
 
 function end() {
+    beepbeepbeepboopbeepbeep.innerHTML = "Run";
     beepbeepbeepboopboopboop.disabled = false;
     beepbeepbeepboopboopbeep.disabled = true;
     beepbeepbeepboopbeepboop.disabled = true;
