@@ -244,9 +244,10 @@ function beepboop(beep, boop) {
             return;
         }
         r_boop = boopboopboop[boopboopboop.length - 1 - beepbeepboopboop];
+        ++currentbeep_boop;
         return;
     }
-    if (beep === "beep beep boop boop") {
+    if (beep === "beep beep boop beep") {
         let beepbeepboopbeep = boopboop(boop);
         if (beepbeepboopbeep >= boopboopboop.length) {
             beeps.innerHTML += `<span style='color: red'>Can't run \"beep beep boop beep\" because there aren't enough values on the stack!</span>`;
@@ -254,6 +255,7 @@ function beepboop(beep, boop) {
             return;
         }
         r_beep = boopboopboop[boopboopboop.length - 1 - beepbeepboopbeep];
+        ++currentbeep_boop;
         return;
     }
     let badbeep = beep;
