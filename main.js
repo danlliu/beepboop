@@ -133,10 +133,13 @@ function beepboop(beep, boop) {
         if (boopbeepboop < 1 || boopbeepboop > beeps_and_boops.length) {
             beeps.innerHTML += `<span style='color: red'>Error: cannot jump to line ${boopboopboop[boopboopboop.length - 1]}</span>`;
             beepbeepbeepbeep = true;
+            return;
         }
         if (boopboopboop.length !== 0 && boopboopboop[boopboopboop.length - 1] !== 0) {
             return boopbeepboop - 1;
         }
+        ++currentbeep_boop;
+        return;
     }
     if (beep === "boop boop boop") {
         if (boopboopboop.length < 2) {
@@ -179,6 +182,7 @@ function beepboop(beep, boop) {
         let boopbeepbeepbeep = boopboopboop.pop();
         boopboopboop.push(Math.floor(boopbeepbeepboop / boopbeepbeepbeep));
         boopboopboop.push(boopbeepbeepboop % boopbeepbeepbeep);
+        return;
     }
     let badbeep = beep;
     beeps.innerHTML += `<span style='color: red'>Syntax error at line ${currentbeep_boop + 1}: ${badbeep}</span>`;
@@ -226,7 +230,7 @@ function run() {
         if (currentbeep_boop >= beeps_and_boops.length || beepbeepbeepbeep) {
             clearInterval(timer);
         }
-    }, 750);
+    }, 250);
 }
 
 function end() {
