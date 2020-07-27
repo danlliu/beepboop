@@ -228,8 +228,17 @@ function step() {
     }
 }
 
+let timer = null;
+
 function run() {
-    var timer = setInterval(() => {
+    if (timer != null) {
+        clearInterval(timer);
+        timer = null;
+        beepbeepbeepboopbeepbeep.innerHTML = "Run";
+        return;
+    }
+    beepbeepbeepboopbeepbeep.innerHTML = "Pause";
+    timer = setInterval(() => {
         step();
         if (currentbeep_boop >= beeps_and_boops.length || beepbeepbeepbeep) {
             clearInterval(timer);
