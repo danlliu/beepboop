@@ -5,6 +5,7 @@ If you're looking in here for details about how the language works, you should f
 let beep_boop = document.querySelector('#code');
 let beeps = document.querySelector('#beep');
 let boops = document.querySelector('#boop');
+let beepboopbeepboop = document.querySelector('#current_beepboop');
 
 let beepbeepbeepboopboopboop = document.querySelector('#compy');
 let beepbeepbeepboopboopbeep = document.querySelector('#step');
@@ -39,6 +40,9 @@ function boopboop(boop) {
     console.log(beepboopbeep);
     return beepboopbeep;
 }
+
+let currentbeep_boop = 0;
+let beeps_and_boops = [];
 
 function beepboop(beep, boop) {
     beep = beep.toLowerCase();
@@ -105,7 +109,11 @@ function beepboop(beep, boop) {
         return;
     }
     if (beep === "beep beep boop") {
-        return boopboopboop[boopboopboop.length - 1];
+        if (boopboopboop[boopboopboop.length - 1] < 1 || boopboopboop[boopboopboop.length - 1] > beeps_and_boops.length) {
+            beeps.innerHTML += `<span style='color: red'>Error: cannot jump to line ${boopboopboop[boopboopboop.length - 1]}</span>`;
+            beepbeepbeepbeep = true;
+        }
+        return boopboopboop[boopboopboop.length - 1] - 1;
     }
     if (beep === "beep beep beep") {
         let boopbeepboop = boopboop(boop);
@@ -137,10 +145,8 @@ function beepboop(beep, boop) {
     }
     let badbeep = beep;
     beeps.innerHTML += `<span style='color: red'>Syntax error at line ${badbeep}</span>`;
+    beepbeepbeepbeep = true;
 }
-
-let currentbeep_boop = 0;
-let beeps_and_boops = [];
 
 function compile() {
     boopboopboop = [];
@@ -151,6 +157,7 @@ function compile() {
     beepbeepbeepboopboopbeep.disabled = false;
     beepbeepbeepboopbeepboop.disabled = false;
     beeps.innerHTML = "";
+    beepboopbeepboop.innerHTML = "&gt;";
     updateboops();
 }
 
@@ -165,6 +172,11 @@ function step() {
         if (currentbeep_boop >= beeps_and_boops.length || beepbeepbeepbeep) {
             beepbeepbeepboopboopbeep.disabled = true;
         }
+        beepboopbeepboop.innerHTML = "";
+        for (let boop = 0; boop < currentbeep_boop; ++boop) {
+            beepboopbeepboop.innerHTML += "<br/>";
+        }
+        beepboopbeepboop.innerHTML += "&gt;";
     }
 }
 
