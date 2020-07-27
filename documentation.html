@@ -20,7 +20,7 @@
     <p>When a Beep Boop program is run, it starts with an empty stack. Instructions can use the values on the stack
         as well as push or pop from the stack.</p>
     <hr/>
-    <b>The instructions:</b>
+    <h3>The instructions:</h3>
     <h4>Pushing/popping</h4>
     <hr/>
     <h5>Boop</h5>
@@ -29,7 +29,8 @@
     <p>The "beep" instruction pops the top value from the stack. This value is gone forever.</p>
     <h5>Boop Boop</h5>
     <p>The "boop boop" instruction pushes a value to the stack. This value is determined by reading the next line as
-    binary. "beep" is a 1 and "boop" is a 0. This value will always be positive (no two's complement)</p>
+    binary. "beep" is a 1 and "boop" is a 0. This value will always be positive (no two's complement). For example,
+        "beep boop beep" = 5.</p>
     <hr/>
     <h4>Output</h4>
     <h5>Beep Boop</h5>
@@ -37,6 +38,27 @@
         in the ASCII table on the main page (10, 32-127).</p>
     <h5>Beep Beep</h5>
     <p>This outputs the top of the stack as a base 10 number.</p>
+    <hr/>
+    <h4>Control Flow:</h4>
+    <h5>Beep Beep Beep Beep</h5>
+    <p>Unconditional halting of the program.</p>
+    <h5>Beep Beep Boop</h5>
+    <p>Unconditional jump to the line number specified by the top of the stack.</p>
+    <h5>Beep Beep Beep</h5>
+    <p>If the top of the stack exists and is a nonzero value, jump to the line number specified by the binary number
+    on the next line. See "Boop Boop" for how "beep"s and "boop"s represent a binary number.</p>
+    <h4>Math:</h4>
+    <h5>Boop Boop Boop</h5>
+    <p>Pop the two numbers on the top of the stack, add them together, and push the sum to the stack.</p>
+    <h5>Boop Boop Beep</h5>
+    <p>Change the number on the top of the stack to its additive inverse (multiply by -1). This is one of the only
+        ways to get negative numbers, as "boop boop" cannot read in two's complement.</p>
+    <h5>Boop Beep Boop</h5>
+    <p>Pop the two numbers on the top of the stack, multiply them together, and push the product to the stack.</p>
+    <h5>Boop Beep Beep</h5>
+    <p>Pop the two numbers on the top of the stack. Perform integer division of the first number (previously top of
+        the stack) by the second number and push the result of the integer division to the stack first, followed by
+        the remainder (first % second).</p>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
