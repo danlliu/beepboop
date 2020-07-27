@@ -123,28 +123,58 @@ function beepboop(beep, boop) {
         return boopboopboop[boopboopboop.length - 1] - 1;
     }
     if (beep === "beep beep beep") {
+        if (boop == null) {
+            beeps.innerHTML += "<span style='color: red'>Error: \"boop boop\" requires a number on the line" +
+                " after.</span>";
+            beepbeepbeepbeep = true;
+            return;
+        }
         let boopbeepboop = boopboop(boop);
-        if (boopboopboop.length != 0 && boopboopboop[boopboopboop.length - 1] != 0) {
-            return boopbeepboop;
+        if (boopbeepboop < 1 || boopbeepboop > beeps_and_boops.length) {
+            beeps.innerHTML += `<span style='color: red'>Error: cannot jump to line ${boopboopboop[boopboopboop.length - 1]}</span>`;
+            beepbeepbeepbeep = true;
+        }
+        if (boopboopboop.length !== 0 && boopboopboop[boopboopboop.length - 1] !== 0) {
+            return boopbeepboop - 1;
         }
     }
     if (beep === "boop boop boop") {
+        if (boopboopboop.length < 2) {
+            beeps.innerHTML += `<span style='color: red'>Can't run \"boop boop boop\" because there aren't two numbers on the stack!</span>`;
+            beepbeepbeepbeep = true;
+            return;
+        }
         let boopboopboopboop = boopboopboop.pop();
         let boopboopboopbeep = boopboopboop.pop();
         boopboopboop.push(boopboopboopboop + boopboopboopbeep);
         return;
     }
     if (beep === "boop boop beep") {
+        if (boopboopboop.length == 0) {
+            beeps.innerHTML += `<span style='color: red'>Can't run \"boop boop boop\" because there isn't a number on the stack!</span>`;
+            beepbeepbeepbeep = true;
+            return;
+        }
         boopboopboop[boopboopboop.length - 1] *= -1;
         return;
     }
     if (beep === "boop beep boop") {
+        if (boopboopboop.length < 2) {
+            beeps.innerHTML += `<span style='color: red'>Can't run \"boop boop boop\" because there aren't two numbers on the stack!</span>`;
+            beepbeepbeepbeep = true;
+            return;
+        }
         let boopbeepboopboop = boopboopboop.pop();
         let boopbeepboopbeep = boopboopboop.pop();
         boopboopboop.push(boopbeepboopboop * boopbeepboopbeep);
         return;
     }
     if (beep === "boop beep beep") {
+        if (boopboopboop.length < 2) {
+            beeps.innerHTML += `<span style='color: red'>Can't run \"boop boop boop\" because there aren't two numbers on the stack!</span>`;
+            beepbeepbeepbeep = true;
+            return;
+        }
         let boopbeepbeepboop = boopboopboop.pop();
         let boopbeepbeepbeep = boopboopboop.pop();
         boopboopboop.push(Math.floor(boopbeepbeepboop / boopbeepbeepbeep));
