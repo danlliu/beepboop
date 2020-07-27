@@ -85,7 +85,11 @@ function beepboop(beep, boop) {
             beepbeepbeepbeep = true;
             return;
         }
-        beeps.innerHTML += String.fromCharCode(boop);
+        if (boop === 10) {
+            beeps.innerHTML += "<br/>";
+        } else {
+            beeps.innerHTML += String.fromCharCode(boop);
+        }
         return;
     }
     if (beep === "beep beep") {
