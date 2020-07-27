@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Beep Boop</title>
+</head>
+<body>
+<div class="mx-auto mt-3" style="width: 85%">
+    <h1 class="text-monospace">Beep Boop</h1>
+    <blockquote class="blockquote">
+        <p class="mb-0">beep boop</p>
+        <footer class="blockquote-footer">kevtan</footer>
+    </blockquote>
+    <hr/>
+    <div class="w-100">
+        <!-- docs -->
+        <h5>Documentation:</h5>
+        <p>Beep boop. You'll figure it out.</p>
+        <!-- Psst... I'll let you in on a bit of a secret :) -->
+        <a href="documentation.html">Docs</a>
+        <!-- ascii table -->
+        <h5>Stuff that might be useful:</h5>
+        <details>
+            <summary>ASCII Table</summary>
+            <div class="row">
+                <div class="col">
+                    <p>10: \n</p>
+                    <p>32: (SPACE)</p>
+                    <p>33: !</p>
+                    <p>34: "</p>
+                    <p>35: #</p>
+                    <p>36: $</p>
+                    <p>37: %</p>
+                    <p>38: &</p>
+                    <p>39: '</p>
+                    <p>40: (</p>
+                    <p>41: )</p>
+                    <p>42: *</p>
+                    <p>43: +</p>
+                    <p>44: ,</p>
+                    <p>45: -</p>
+                    <p>46: .</p>
+                    <p>47: /</p>
+                </div>
+                <div class="col">
+                    <p>48: 0</p>
+                    <p>49: 1</p>
+                    <p>50: 2</p>
+                    <p>51: 3</p>
+                    <p>52: 4</p>
+                    <p>53: 5</p>
+                    <p>54: 6</p>
+                    <p>55: 7</p>
+                    <p>56: 8</p>
+                    <p>57: 9</p>
+                    <p>58: :</p>
+                    <p>59: ;</p>
+                    <p>60: &lt;</p>
+                    <p>61: =</p>
+                    <p>62: &gt;</p>
+                    <p>63: ?</p>
+                </div>
+                <div class="col">
+                    <p>64: @</p>
+                    <p>65: A</p>
+                    <p>66: B</p>
+                    <p>67: C</p>
+                    <p>68: D</p>
+                    <p>69: E</p>
+                    <p>70: F</p>
+                    <p>71: G</p>
+                    <p>72: H</p>
+                    <p>73: I</p>
+                    <p>74: J</p>
+                    <p>75: K</p>
+                    <p>76: L</p>
+                    <p>77: M</p>
+                    <p>78: N</p>
+                    <p>79: O</p>
+                </div>
+                <div class="col">
+                    <p>80: P</p>
+                    <p>81: Q</p>
+                    <p>82: R</p>
+                    <p>83: S</p>
+                    <p>84: T</p>
+                    <p>85: U</p>
+                    <p>86: V</p>
+                    <p>87: W</p>
+                    <p>88: X</p>
+                    <p>99: Y</p>
+                    <p>90: Z</p>
+                    <p>91: [</p>
+                    <p>92: \</p>
+                    <p>93: ]</p>
+                    <p>94: ^</p>
+                    <p>95: _</p>
+                </div>
+                <div class="col">
+                    <p>96: `</p>
+                    <p>97: a</p>
+                    <p>98: b</p>
+                    <p>99: c</p>
+                    <p>100: d</p>
+                    <p>101: e</p>
+                    <p>102: f</p>
+                    <p>103: g</p>
+                    <p>104: h</p>
+                    <p>105: i</p>
+                    <p>106: j</p>
+                    <p>107: k</p>
+                    <p>108: l</p>
+                    <p>109: m</p>
+                    <p>110: n</p>
+                    <p>111: o</p>
+                </div>
+                <div class="col">
+                    <p>112: p</p>
+                    <p>113: q</p>
+                    <p>114: r</p>
+                    <p>115: s</p>
+                    <p>116: t</p>
+                    <p>117: u</p>
+                    <p>118: v</p>
+                    <p>119: w</p>
+                    <p>120: x</p>
+                    <p>121: y</p>
+                    <p>122: z</p>
+                    <p>123: {</p>
+                    <p>124: |</p>
+                    <p>125: }</p>
+                    <p>126: ~</p>
+                </div>
+            </div>
+        </details>
+    </div>
+    <hr/>
+    <div class="row no-gutters" style="height: 100vh">
+        <div class="col-7 border-right p-3 h-100">
+            <h5>Code</h5>
+            <textarea id="code" class="w-100 text-monospace" rows="24"></textarea>
+        </div>
+        <div class="col-5 p-3 h-100">
+            <div>
+                <button class="btn btn-primary" id="compy" onclick="compile()">Compile</button>
+                <button class="btn btn-primary" id="step" onclick="step()" disabled>Step</button>
+                <button class="btn btn-secondary" id="end" onclick="end()" disabled>End run</button>
+            </div>
+            <hr/>
+            <h5>Program output:</h5>
+            <p id="beep" class="w-100 text-monospace border" style="height: 25%; overflow-y: scroll">
+
+            </p>
+            <hr/>
+            <h5>The Stack:</h5>
+            <ul class="list-group" id="boop">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+</html>

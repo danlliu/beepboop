@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Beep Boop Documentation</title>
+</head>
+<body>
+<div class="content p-3">
+    <h1 class="text-monospace">Beep Boop Documentation</h1>
+    <b>Language Overview:</b>
+    <p>Beep Boop is a stack-based language with two keywords: "beep" and "boop". The language is case insensitive.</p>
+    <hr/>
+    <b>Running Programs:</b>
+    <p>When a Beep Boop program is run, it starts with an empty stack. Instructions can use the values on the stack
+        as well as push or pop from the stack.</p>
+    <hr/>
+    <b>The instructions:</b>
+    <h4>Pushing/popping</h4>
+    <hr/>
+    <h5>Boop</h5>
+    <p>The "boop" instruction pushes the value 0 onto the stack.</p>
+    <h5>Beep</h5>
+    <p>The "beep" instruction pops the top value from the stack. This value is gone forever.</p>
+    <h5>Boop Boop</h5>
+    <p>The "boop boop" instruction pushes a value to the stack. This value is determined by reading the next line as
+    binary. "beep" is a 1 and "boop" is a 0. This value will always be positive (no two's complement)</p>
+    <hr/>
+    <h4>Output</h4>
+    <h5>Beep Boop</h5>
+    <p>This outputs the top of the stack as an ASCII character. Currently, Beep Boop supports all characters listed
+        in the ASCII table on the main page (10, 32-127).</p>
+    <h5>Beep Beep</h5>
+    <p>This outputs the top of the stack as a base 10 number.</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
