@@ -111,7 +111,7 @@ function beepboop(beep, boop) {
         return;
     }
     if (beep === "beep beep beep beep") {
-        beeps.append("<b>Halting!</b>");
+        beeps.innerHTML += "<br/><b>Halting!</b></br>";
         beepbeepbeepbeep = true;
         return;
     }
