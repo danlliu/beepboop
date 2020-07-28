@@ -334,16 +334,30 @@ function end() {
 }
 
 function download() {
-    var blob = new Blob([editor.getValue()], {type: 'text'});
-    if(window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveBlob(blob, 'beepboop.txt');
+    // var blob = new Blob([editor.getValue()], {type: 'text'});
+    // if(window.navigator.msSaveOrOpenBlob) {
+    //     window.navigator.msSaveBlob(blob, 'beepboop.txt');
+    // }
+    // else {
+    //     var elem = window.document.createElement('a');
+    //     elem.href = window.URL.createObjectURL(blob);
+    //     elem.download = 'beepboop.txt';
+    //     document.body.appendChild(elem);
+    //     elem.click();
+    //     document.body.removeChild(elem);
+    // }
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
     }
-    else {
-        var elem = window.document.createElement('a');
-        elem.href = window.URL.createObjectURL(blob);
-        elem.download = 'beepboop.txt';
-        document.body.appendChild(elem);
-        elem.click();
-        document.body.removeChild(elem);
-    }
+
+    download("beepboop.txt", editor.getValue());
 }
