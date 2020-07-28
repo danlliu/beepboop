@@ -346,7 +346,7 @@ function download() {
     //     elem.click();
     //     document.body.removeChild(elem);
     // }
-    function download(filename, text) {
+    function dwnld(filename, text) {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
         element.setAttribute('download', filename);
@@ -359,5 +359,5 @@ function download() {
         document.body.removeChild(element);
     }
 
-    download("beepboop.txt", editor.getValue());
+    dwnld("beepboop.txt", editor.getValue());
 }
