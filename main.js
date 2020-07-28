@@ -276,6 +276,8 @@ function compile() {
     beepbeepbeepboopbeepbeep.disabled = false;
     beeps.innerHTML = "";
     beepboopbeepboop.innerHTML = "&gt;";
+    r_boop = 0;
+    r_beep = 0;
     updateboops();
 }
 
@@ -329,4 +331,19 @@ function end() {
     beepbeepbeepboopbeepbeep.disabled = true;
     beepboopbeepboop.innerHTML = "";
     editor.setOption('readOnly', false);
+}
+
+function download() {
+    var blob = new Blob([editor.getValue()], {type: 'text'});
+    if(window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveBlob(blob, 'beepboop.txt');
+    }
+    else {
+        var elem = window.document.createElement('a');
+        elem.href = window.URL.createObjectURL(blob);
+        elem.download = 'beepboop.txt';
+        document.body.appendChild(elem);
+        elem.click();
+        document.body.removeChild(elem);
+    }
 }
