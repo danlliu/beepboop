@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="lib/codemirror.css">
     <script src="lib/codemirror.js"></script>
+    <style>
+        .CodeMirror {
+            min-height: 300px;
+            height: auto;
+        }
+        .CodeMirror-code div div div {
+            color: black;
+            font-weight: lighter;
+        }
+    </style>
+    <style id="stylish">
+    </style>
     <title>Beep Boop</title>
 </head>
 <body>
@@ -157,17 +169,8 @@
                     </svg></button>
                 </div>
             </div>
-            <div class="row no-gutters" style="height: 90%;">
-                <div class="col-1 h-100">
-                    <p class="text-right pr-1 pt-1" style="color: green; font-family: monospace; font-size: 1rem;
-                    line-height: 1.5; font-weight: bold"
-                       id="current_beepboop">
-
-                    </p>
-                </div>
-                <div class="col-11 h-100">
-                    <textarea id="code" class="w-100 text-monospace"></textarea>
-                </div>
+            <div style="height: 90%;">
+                <textarea id="code" class="w-100 text-monospace"></textarea>
             </div>
         </div>
         <div class="col-5 p-3 h-100">

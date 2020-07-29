@@ -5,11 +5,11 @@ If you're looking in here for details about how the language works, you should f
 let editor = CodeMirror.fromTextArea(document.querySelector('#code'), {
     lineNumbers: true
 });
-editor.setSize(null, "100%");
+//editor.setSize(null, "100%");
+
 let beep_boop = document.querySelector('#code');
 let beeps = document.querySelector('#beep');
 let boops = document.querySelector('#boop');
-let beepboopbeepboop = document.querySelector('#current_beepboop');
 
 let beepbeepbeepboopboopboop = document.querySelector('#compy');
 let beepbeepbeepboopboopbeep = document.querySelector('#step');
@@ -32,7 +32,6 @@ function updateboops() {
 function boopboop(boop) {
     boop = boop.toLowerCase();
     let beep = boop.split(' ');
-    console.log(beep);
     let beeps = Math.pow(2, beep.length - 1);
     let beepboopbeep = 0;
     for (let boopbeep = 0; boopbeep < beep.length; ++boopbeep) {
@@ -45,7 +44,6 @@ function boopboop(boop) {
         }
         beeps /= 2;
     }
-    console.log(beepboopbeep);
     return beepboopbeep;
 }
 
@@ -267,7 +265,6 @@ function compile() {
     editor.setOption('readOnly', true);
     boopboopboop = [];
     beeps_and_boops = editor.getValue().split('\n');
-    console.log(beeps_and_boops);
     currentbeep_boop = 0;
     beepbeepbeepbeep = false;
     beepbeepbeepboopboopboop.disabled = true;
@@ -275,10 +272,20 @@ function compile() {
     beepbeepbeepboopbeepboop.disabled = false;
     beepbeepbeepboopbeepbeep.disabled = false;
     beeps.innerHTML = "";
-    beepboopbeepboop.innerHTML = "&gt;";
     r_boop = 0;
     r_beep = 0;
     updateboops();
+    editor.setOption('lineNumberFormatter', (num) => {
+        if (num === currentbeep_boop + 1) {
+            return `>`;
+        } else {
+            return `${num}`;
+        }
+    });
+    document.querySelector('#stylish').innerHTML = `.CodeMirror-code div:nth-child(${currentbeep_boop + 1}) div div {
+            color: green;
+            font-weight: bold;
+        }`;
 }
 
 function step() {
@@ -295,11 +302,17 @@ function step() {
         }
         R_BOOP.innerHTML = `${r_boop}`;
         R_BEEP.innerHTML = `${r_beep}`;
-        beepboopbeepboop.innerHTML = "";
-        for (let boop = 0; boop < currentbeep_boop; ++boop) {
-            beepboopbeepboop.innerHTML += "<br/>";
-        }
-        beepboopbeepboop.innerHTML += "&gt;";
+        editor.setOption('lineNumberFormatter', (num) => {
+            if (num === currentbeep_boop + 1) {
+                return `>`;
+            } else {
+                return `${num}`;
+            }
+        });
+        document.querySelector('#stylish').innerHTML = `.CodeMirror-code div:nth-child(${currentbeep_boop + 1}) div div {
+            color: green;
+            font-weight: bold;
+        }`;
     }
 }
 
@@ -329,8 +342,11 @@ function end() {
     beepbeepbeepboopboopbeep.disabled = true;
     beepbeepbeepboopbeepboop.disabled = true;
     beepbeepbeepboopbeepbeep.disabled = true;
-    beepboopbeepboop.innerHTML = "";
     editor.setOption('readOnly', false);
+    editor.setOption('lineNumberFormatter', (num) => {
+        return `${num}`;
+    });
+    document.querySelector('#stylish').innerHTML = '';
 }
 
 function download() {
