@@ -5,6 +5,19 @@ If you're looking in here for details about how the language works, you should f
 let editor = CodeMirror.fromTextArea(document.querySelector('#code'), {
     lineNumbers: true
 });
+
+editor.off('change', (inst, obj) => {
+    let commentregex = new RegExp('^beepboop', 'is');
+    document.querySelectorAll('.CodeMirror-line').forEach((x) => {
+        console.log(x.innerText + 'abc');
+        if (commentregex.test(x.innerText)) {
+            x.classList.add('comment');
+            console.log('comment');
+        } else {
+            x.classList.remove('comment');
+        }
+    })
+});
 //editor.setSize(null, "100%");
 
 let beep_boop = document.querySelector('#code');
