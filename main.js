@@ -6,10 +6,10 @@ let editor = CodeMirror.fromTextArea(document.querySelector('#code'), {
     lineNumbers: true
 });
 
-editor.off('change', (inst, obj) => {
+editor.on('change', (inst, obj) => {
+    console.log('change');
     let commentregex = new RegExp('^beepboop', 'is');
     document.querySelectorAll('.CodeMirror-line').forEach((x) => {
-        console.log(x.innerText + 'abc');
         if (commentregex.test(x.innerText)) {
             x.classList.add('comment');
             console.log('comment');
